@@ -5,7 +5,12 @@
 
 import React, {useRef} from 'react';
 import classnames from 'classnames';
-import * as lunr from "lunr";
+
+/* Bad code!!! - Hack */
+var lunr = require("lunr");
+require('lunr-languages/lunr.stemmer.support')(lunr);
+require('lunr-languages/lunr.ru')(lunr);
+require('lunr-languages/lunr.multi')(lunr);
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useHistory} from '@docusaurus/router';
@@ -23,6 +28,7 @@ function fetchIndex(baseUrl) {
     return Promise.resolve({
       documents: [],
       index: lunr(function () {
+	this.use(lunr.multiLanguage('en', 'ru'));
         this.ref("id");
         this.field("title");
         this.field("content");

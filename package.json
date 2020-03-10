@@ -1,5 +1,5 @@
 {
-  "name": "@cmfcmf/docusaurus-search-local",
+  "name": "@artycorp/docusaurus-search-local",
   "version": "0.0.5",
   "description": "Local Search for Docusaurus",
   "keywords": [
@@ -8,7 +8,7 @@
     "plugin"
   ],
   "license": "MIT",
-  "repository": "cmfcmf/docusaurus-search-local",
+  "repository": "artycorp/docusaurus-search-local",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public"
@@ -18,7 +18,8 @@
     "autocomplete.js": "^0.37.0",
     "classnames": "^2.2.6",
     "htmlparser2": "^4.0.0",
-    "lunr": "^2.3.8"
+    "lunr": "^2.3.8",
+    "lunr-languages": "^1.4.0"
   },
   "engines": {
     "node": ">=10.9.0"

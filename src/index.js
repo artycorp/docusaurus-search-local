@@ -6,6 +6,9 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const lunr = require("lunr");
+require('lunr-languages/lunr.stemmer.support')(lunr);
+require('lunr-languages/lunr.ru')(lunr);
+require('lunr-languages/lunr.multi')(lunr);
 const htmlparser2 = require("htmlparser2");
 
 function html2text(html) {
@@ -176,6 +179,7 @@ module.exports = function(context, options) {
       }))).reduce((acc, val) => acc.concat(val), []); // .flat()
 
       const index = lunr(function () {
+	this.use(lunr.multiLanguage('en', 'ru'));
         this.ref("id");
         this.field("title");
         this.field("content");
